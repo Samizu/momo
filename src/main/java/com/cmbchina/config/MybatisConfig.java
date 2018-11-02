@@ -30,7 +30,7 @@ public class MybatisConfig {
     public SqlSessionFactoryBean sqlSessionFactoryYummy2(@Qualifier("dataSourceYummy") DataSource dataSourceYummy, ResourcePatternResolver resolver) throws IOException {
         SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
         sqlSessionFactoryBean.setDataSource(dataSourceYummy);
-        sqlSessionFactoryBean.setMapperLocations(resolver.getResources("classpath:mybatis/mapper/gen/*.xml"));
+        sqlSessionFactoryBean.setMapperLocations(resolver.getResources("classpath:mybatis/mapper/gen/momo/*.xml"));
         sqlSessionFactoryBean.setConfigLocation(resolver.getResource("classpath:mybatis.xml"));
         return sqlSessionFactoryBean;
     }
@@ -39,7 +39,7 @@ public class MybatisConfig {
     @Bean
     public MapperScannerConfigurer mapperScannerConfigurerYummy2() {
         MapperScannerConfigurer mapperScannerConfigurer = new MapperScannerConfigurer();
-        mapperScannerConfigurer.setBasePackage("com.cmbchina.dao.mapper.gen");
+        mapperScannerConfigurer.setBasePackage("com.cmbchina.dao.mapper.gen.momo");
         mapperScannerConfigurer.setSqlSessionFactoryBeanName("sqlSessionFactoryYummy2");
         return mapperScannerConfigurer;
     }

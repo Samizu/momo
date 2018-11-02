@@ -383,7 +383,7 @@
     from activity_detail
     where id = #{id}  for update 
   </select>
-  <select id="lockByExample" resultMap="BaseResultMap" parameterType="com.cmbchina.dao.po.momo.com.cmbchina.dao.po.momo.ActivityDetailPOExample" >
+  <select id="lockByExample" resultMap="BaseResultMap" parameterType="com.cmbchina.dao.po.momo.ActivityDetailPOExample" >
     select 
     <if test="distinct" >
       distinct

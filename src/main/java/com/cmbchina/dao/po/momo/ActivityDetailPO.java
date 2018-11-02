@@ -13,7 +13,7 @@ public class ActivityDetailPO implements Serializable {
     /**
      *
      */
-    private Integer id;
+    private String id;
 
     /**
      *活动名称
@@ -70,14 +70,14 @@ public class ActivityDetailPO implements Serializable {
      */
     private String activityRule;
 
-    private static final long serialVersionUID = 6197662311493036737L;
+    private static final long serialVersionUID = 7022456550342618810L;
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setId(String id) {
+        this.id = id == null ? null : id.trim();
     }
 
     public String getActivityName() {

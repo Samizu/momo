@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.cmbchina.dao.mapper.gen.momo.ActivityDetailPOMapper" >
   <resultMap id="BaseResultMap" type="com.cmbchina.dao.po.momo.ActivityDetailPO" >
-    <id column="id" property="id" jdbcType="INTEGER" />
+    <id column="id" property="id" jdbcType="VARCHAR" />
     <result column="activity_name" property="activityName" jdbcType="VARCHAR" />
     <result column="duration" property="duration" jdbcType="INTEGER" />
     <result column="max_receive_count" property="maxReceiveCount" jdbcType="INTEGER" />
@@ -115,17 +115,17 @@
       </if>
     </if>
   </select>
-  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
     ,
     <include refid="Blob_Column_List" />
     from activity_detail
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from activity_detail
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
   </delete>
   <delete id="deleteByExample" parameterType="com.cmbchina.dao.po.momo.ActivityDetailPOExample" >
     delete from activity_detail
@@ -139,7 +139,7 @@
       adventure_name, adventure_pic_url, adventure_link, 
       create_time, update_time, activity_rule
       )
-    values (#{id,jdbcType=INTEGER}, #{activityName,jdbcType=VARCHAR}, #{duration,jdbcType=INTEGER}, 
+    values (#{id,jdbcType=VARCHAR}, #{activityName,jdbcType=VARCHAR}, #{duration,jdbcType=INTEGER}, 
       #{maxReceiveCount,jdbcType=INTEGER}, #{maxCouponId,jdbcType=INTEGER}, #{maxCouponType,jdbcType=VARCHAR}, 
       #{adventureName,jdbcType=VARCHAR}, #{adventurePicUrl,jdbcType=VARCHAR}, #{adventureLink,jdbcType=VARCHAR}, 
       #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{activityRule,jdbcType=LONGVARCHAR}
@@ -187,7 +187,7 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
-        #{id,jdbcType=INTEGER},
+        #{id,jdbcType=VARCHAR},
       </if>
       <if test="activityName != null" >
         #{activityName,jdbcType=VARCHAR},
@@ -234,7 +234,7 @@
     update activity_detail
     <set >
       <if test="record.id != null" >
-        id = #{record.id,jdbcType=INTEGER},
+        id = #{record.id,jdbcType=VARCHAR},
       </if>
       <if test="record.activityName != null" >
         activity_name = #{record.activityName,jdbcType=VARCHAR},
@@ -276,7 +276,7 @@
   </update>
   <update id="updateByExampleWithBLOBs" parameterType="map" >
     update activity_detail
-    set id = #{record.id,jdbcType=INTEGER},
+    set id = #{record.id,jdbcType=VARCHAR},
       activity_name = #{record.activityName,jdbcType=VARCHAR},
       duration = #{record.duration,jdbcType=INTEGER},
       max_receive_count = #{record.maxReceiveCount,jdbcType=INTEGER},
@@ -294,7 +294,7 @@
   </update>
   <update id="updateByExample" parameterType="map" >
     update activity_detail
-    set id = #{record.id,jdbcType=INTEGER},
+    set id = #{record.id,jdbcType=VARCHAR},
       activity_name = #{record.activityName,jdbcType=VARCHAR},
       duration = #{record.duration,jdbcType=INTEGER},
       max_receive_count = #{record.maxReceiveCount,jdbcType=INTEGER},
@@ -346,7 +346,7 @@
         activity_rule = #{activityRule,jdbcType=LONGVARCHAR},
       </if>
     </set>
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
   </update>
   <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.cmbchina.dao.po.momo.ActivityDetailPO" >
     update activity_detail
@@ -361,7 +361,7 @@
       create_time = #{createTime,jdbcType=TIMESTAMP},
       update_time = #{updateTime,jdbcType=TIMESTAMP},
       activity_rule = #{activityRule,jdbcType=LONGVARCHAR}
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.cmbchina.dao.po.momo.ActivityDetailPO" >
     update activity_detail
@@ -375,9 +375,9 @@
       adventure_link = #{adventureLink,jdbcType=VARCHAR},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       update_time = #{updateTime,jdbcType=TIMESTAMP}
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
   </update>
-  <select id="lockByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  <select id="lockByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
     from activity_detail
@@ -405,7 +405,7 @@
     insert into activity_detail (id, activity_name, duration, max_receive_count, max_coupon_id, max_coupon_type, adventure_name, adventure_pic_url, adventure_link, create_time, update_time, activity_rule)
     values 
     <foreach collection="recordList" item="record" separator="," >
-      (#{record.id,jdbcType=INTEGER}, #{record.activityName,jdbcType=VARCHAR}, #{record.duration,jdbcType=INTEGER}, #{record.maxReceiveCount,jdbcType=INTEGER}, #{record.maxCouponId,jdbcType=INTEGER}, #{record.maxCouponType,jdbcType=VARCHAR}, #{record.adventureName,jdbcType=VARCHAR}, #{record.adventurePicUrl,jdbcType=VARCHAR}, #{record.adventureLink,jdbcType=VARCHAR}, #{record.createTime,jdbcType=TIMESTAMP}, #{record.updateTime,jdbcType=TIMESTAMP}, #{record.activityRule,jdbcType=LONGVARCHAR}
+      (#{record.id,jdbcType=VARCHAR}, #{record.activityName,jdbcType=VARCHAR}, #{record.duration,jdbcType=INTEGER}, #{record.maxReceiveCount,jdbcType=INTEGER}, #{record.maxCouponId,jdbcType=INTEGER}, #{record.maxCouponType,jdbcType=VARCHAR}, #{record.adventureName,jdbcType=VARCHAR}, #{record.adventurePicUrl,jdbcType=VARCHAR}, #{record.adventureLink,jdbcType=VARCHAR}, #{record.createTime,jdbcType=TIMESTAMP}, #{record.updateTime,jdbcType=TIMESTAMP}, #{record.activityRule,jdbcType=LONGVARCHAR}
     ) 
     </foreach>
   </insert>
@@ -452,7 +452,7 @@
       </trim>
       <trim prefix="values (" suffix=")" suffixOverrides="," >
         <if test="record.id != null" >
-          #{record.id,jdbcType=INTEGER},
+          #{record.id,jdbcType=VARCHAR},
         </if>
         <if test="record.activityName != null" >
           #{record.activityName,jdbcType=VARCHAR},

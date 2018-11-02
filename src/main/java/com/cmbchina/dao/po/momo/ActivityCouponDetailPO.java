@@ -13,12 +13,12 @@ public class ActivityCouponDetailPO implements Serializable {
     /**
      *
      */
-    private Integer id;
+    private String id;
 
     /**
      *关联活动id
      */
-    private Integer activityId;
+    private String activityId;
 
     /**
      *
@@ -26,7 +26,7 @@ public class ActivityCouponDetailPO implements Serializable {
     private String couponId;
 
     /**
-     *饭票还是影票还是电商
+     *饭票1 还是影票2 还是电商3
      */
     private String couponType;
 
@@ -40,22 +40,22 @@ public class ActivityCouponDetailPO implements Serializable {
      */
     private Date createTime;
 
-    private static final long serialVersionUID = -7572714021474534339L;
+    private static final long serialVersionUID = -4450970615000078774L;
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setId(String id) {
+        this.id = id == null ? null : id.trim();
     }
 
-    public Integer getActivityId() {
+    public String getActivityId() {
         return activityId;
     }
 
-    public void setActivityId(Integer activityId) {
-        this.activityId = activityId;
+    public void setActivityId(String activityId) {
+        this.activityId = activityId == null ? null : activityId.trim();
     }
 
     public String getCouponId() {

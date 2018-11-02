@@ -12,7 +12,7 @@ public interface ActivityCouponDetailPOMapper {
 
     int deleteByExample(ActivityCouponDetailPOExample example);
 
-    int deleteByPrimaryKey(Integer id);
+    int deleteByPrimaryKey(String id);
 
     int insert(ActivityCouponDetailPO record);
 
@@ -20,7 +20,7 @@ public interface ActivityCouponDetailPOMapper {
 
     List<ActivityCouponDetailPO> selectByExample(ActivityCouponDetailPOExample example);
 
-    ActivityCouponDetailPO selectByPrimaryKey(Integer id);
+    ActivityCouponDetailPO selectByPrimaryKey(String id);
 
     int updateByExampleSelective(@Param("record") ActivityCouponDetailPO record, @Param("example") ActivityCouponDetailPOExample example);
 
@@ -30,7 +30,7 @@ public interface ActivityCouponDetailPOMapper {
 
     int updateByPrimaryKey(ActivityCouponDetailPO record);
 
-    ActivityCouponDetailPO lockByPrimaryKey(@Param("id") Integer id);
+    ActivityCouponDetailPO lockByPrimaryKey(@Param("id") String id);
 
     List<ActivityCouponDetailPO> lockByExample(ActivityCouponDetailPOExample example);
 

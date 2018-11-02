@@ -135,52 +135,62 @@ public class ActivityCouponDetailPOExample {
             return (Criteria) this;
         }
 
-        public Criteria andIdEqualTo(Integer value) {
+        public Criteria andIdEqualTo(String value) {
             addCriterion("id =", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdNotEqualTo(Integer value) {
+        public Criteria andIdNotEqualTo(String value) {
             addCriterion("id <>", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdGreaterThan(Integer value) {
+        public Criteria andIdGreaterThan(String value) {
             addCriterion("id >", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdGreaterThanOrEqualTo(Integer value) {
+        public Criteria andIdGreaterThanOrEqualTo(String value) {
             addCriterion("id >=", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdLessThan(Integer value) {
+        public Criteria andIdLessThan(String value) {
             addCriterion("id <", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdLessThanOrEqualTo(Integer value) {
+        public Criteria andIdLessThanOrEqualTo(String value) {
             addCriterion("id <=", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdIn(List<Integer> values) {
+        public Criteria andIdLike(String value) {
+            addCriterion("id like", value, "id");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdNotLike(String value) {
+            addCriterion("id not like", value, "id");
+            return (Criteria) this;
+        }
+
+        public Criteria andIdIn(List<String> values) {
             addCriterion("id in", values, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdNotIn(List<Integer> values) {
+        public Criteria andIdNotIn(List<String> values) {
             addCriterion("id not in", values, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdBetween(Integer value1, Integer value2) {
+        public Criteria andIdBetween(String value1, String value2) {
             addCriterion("id between", value1, value2, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdNotBetween(Integer value1, Integer value2) {
+        public Criteria andIdNotBetween(String value1, String value2) {
             addCriterion("id not between", value1, value2, "id");
             return (Criteria) this;
         }
@@ -195,52 +205,62 @@ public class ActivityCouponDetailPOExample {
             return (Criteria) this;
         }
 
-        public Criteria andActivityIdEqualTo(Integer value) {
+        public Criteria andActivityIdEqualTo(String value) {
             addCriterion("activity_id =", value, "activityId");
             return (Criteria) this;
         }
 
-        public Criteria andActivityIdNotEqualTo(Integer value) {
+        public Criteria andActivityIdNotEqualTo(String value) {
             addCriterion("activity_id <>", value, "activityId");
             return (Criteria) this;
         }
 
-        public Criteria andActivityIdGreaterThan(Integer value) {
+        public Criteria andActivityIdGreaterThan(String value) {
             addCriterion("activity_id >", value, "activityId");
             return (Criteria) this;
         }
 
-        public Criteria andActivityIdGreaterThanOrEqualTo(Integer value) {
+        public Criteria andActivityIdGreaterThanOrEqualTo(String value) {
             addCriterion("activity_id >=", value, "activityId");
             return (Criteria) this;
         }
 
-        public Criteria andActivityIdLessThan(Integer value) {
+        public Criteria andActivityIdLessThan(String value) {
             addCriterion("activity_id <", value, "activityId");
             return (Criteria) this;
         }
 
-        public Criteria andActivityIdLessThanOrEqualTo(Integer value) {
+        public Criteria andActivityIdLessThanOrEqualTo(String value) {
             addCriterion("activity_id <=", value, "activityId");
             return (Criteria) this;
         }
 
-        public Criteria andActivityIdIn(List<Integer> values) {
+        public Criteria andActivityIdLike(String value) {
+            addCriterion("activity_id like", value, "activityId");
+            return (Criteria) this;
+        }
+
+        public Criteria andActivityIdNotLike(String value) {
+            addCriterion("activity_id not like", value, "activityId");
+            return (Criteria) this;
+        }
+
+        public Criteria andActivityIdIn(List<String> values) {
             addCriterion("activity_id in", values, "activityId");
             return (Criteria) this;
         }
 
-        public Criteria andActivityIdNotIn(List<Integer> values) {
+        public Criteria andActivityIdNotIn(List<String> values) {
             addCriterion("activity_id not in", values, "activityId");
             return (Criteria) this;
         }
 
-        public Criteria andActivityIdBetween(Integer value1, Integer value2) {
+        public Criteria andActivityIdBetween(String value1, String value2) {
             addCriterion("activity_id between", value1, value2, "activityId");
             return (Criteria) this;
         }
 
-        public Criteria andActivityIdNotBetween(Integer value1, Integer value2) {
+        public Criteria andActivityIdNotBetween(String value1, String value2) {
             addCriterion("activity_id not between", value1, value2, "activityId");
             return (Criteria) this;
         }

@@ -2,8 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.cmbchina.dao.mapper.gen.momo.ActivityCouponDetailPOMapper" >
   <resultMap id="BaseResultMap" type="com.cmbchina.dao.po.momo.ActivityCouponDetailPO" >
-    <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="activity_id" property="activityId" jdbcType="INTEGER" />
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="activity_id" property="activityId" jdbcType="VARCHAR" />
     <result column="coupon_id" property="couponId" jdbcType="VARCHAR" />
     <result column="coupon_type" property="couponType" jdbcType="VARCHAR" />
     <result column="is_max" property="isMax" jdbcType="VARCHAR" />
@@ -87,15 +87,15 @@
       </if>
     </if>
   </select>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
     from activity_coupon_detail
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from activity_coupon_detail
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
   </delete>
   <delete id="deleteByExample" parameterType="com.cmbchina.dao.po.momo.ActivityCouponDetailPOExample" >
     delete from activity_coupon_detail
@@ -107,7 +107,7 @@
     insert into activity_coupon_detail (id, activity_id, coupon_id, 
       coupon_type, is_max, create_time
       )
-    values (#{id,jdbcType=INTEGER}, #{activityId,jdbcType=INTEGER}, #{couponId,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=VARCHAR}, #{activityId,jdbcType=VARCHAR}, #{couponId,jdbcType=VARCHAR}, 
       #{couponType,jdbcType=VARCHAR}, #{isMax,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}
       )
   </insert>
@@ -135,10 +135,10 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
-        #{id,jdbcType=INTEGER},
+        #{id,jdbcType=VARCHAR},
       </if>
       <if test="activityId != null" >
-        #{activityId,jdbcType=INTEGER},
+        #{activityId,jdbcType=VARCHAR},
       </if>
       <if test="couponId != null" >
         #{couponId,jdbcType=VARCHAR},
@@ -164,10 +164,10 @@
     update activity_coupon_detail
     <set >
       <if test="record.id != null" >
-        id = #{record.id,jdbcType=INTEGER},
+        id = #{record.id,jdbcType=VARCHAR},
       </if>
       <if test="record.activityId != null" >
-        activity_id = #{record.activityId,jdbcType=INTEGER},
+        activity_id = #{record.activityId,jdbcType=VARCHAR},
       </if>
       <if test="record.couponId != null" >
         coupon_id = #{record.couponId,jdbcType=VARCHAR},
@@ -188,8 +188,8 @@
   </update>
   <update id="updateByExample" parameterType="map" >
     update activity_coupon_detail
-    set id = #{record.id,jdbcType=INTEGER},
-      activity_id = #{record.activityId,jdbcType=INTEGER},
+    set id = #{record.id,jdbcType=VARCHAR},
+      activity_id = #{record.activityId,jdbcType=VARCHAR},
       coupon_id = #{record.couponId,jdbcType=VARCHAR},
       coupon_type = #{record.couponType,jdbcType=VARCHAR},
       is_max = #{record.isMax,jdbcType=VARCHAR},
@@ -202,7 +202,7 @@
     update activity_coupon_detail
     <set >
       <if test="activityId != null" >
-        activity_id = #{activityId,jdbcType=INTEGER},
+        activity_id = #{activityId,jdbcType=VARCHAR},
       </if>
       <if test="couponId != null" >
         coupon_id = #{couponId,jdbcType=VARCHAR},
@@ -217,18 +217,18 @@
         create_time = #{createTime,jdbcType=TIMESTAMP},
       </if>
     </set>
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.cmbchina.dao.po.momo.ActivityCouponDetailPO" >
     update activity_coupon_detail
-    set activity_id = #{activityId,jdbcType=INTEGER},
+    set activity_id = #{activityId,jdbcType=VARCHAR},
       coupon_id = #{couponId,jdbcType=VARCHAR},
       coupon_type = #{couponType,jdbcType=VARCHAR},
       is_max = #{isMax,jdbcType=VARCHAR},
       create_time = #{createTime,jdbcType=TIMESTAMP}
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
   </update>
-  <select id="lockByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  <select id="lockByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
     from activity_coupon_detail
@@ -256,7 +256,7 @@
     insert into activity_coupon_detail (id, activity_id, coupon_id, coupon_type, is_max, create_time)
     values 
     <foreach collection="recordList" item="record" separator="," >
-      (#{record.id,jdbcType=INTEGER}, #{record.activityId,jdbcType=INTEGER}, #{record.couponId,jdbcType=VARCHAR}, #{record.couponType,jdbcType=VARCHAR}, #{record.isMax,jdbcType=VARCHAR}, #{record.createTime,jdbcType=TIMESTAMP}
+      (#{record.id,jdbcType=VARCHAR}, #{record.activityId,jdbcType=VARCHAR}, #{record.couponId,jdbcType=VARCHAR}, #{record.couponType,jdbcType=VARCHAR}, #{record.isMax,jdbcType=VARCHAR}, #{record.createTime,jdbcType=TIMESTAMP}
     ) 
     </foreach>
   </insert>
@@ -285,10 +285,10 @@
       </trim>
       <trim prefix="values (" suffix=")" suffixOverrides="," >
         <if test="record.id != null" >
-          #{record.id,jdbcType=INTEGER},
+          #{record.id,jdbcType=VARCHAR},
         </if>
         <if test="record.activityId != null" >
-          #{record.activityId,jdbcType=INTEGER},
+          #{record.activityId,jdbcType=VARCHAR},
         </if>
         <if test="record.couponId != null" >
           #{record.couponId,jdbcType=VARCHAR},

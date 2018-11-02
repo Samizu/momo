@@ -40,7 +40,7 @@ public class ActivityCouponDetailPO implements Serializable {
      */
     private Date createTime;
 
-    private static final long serialVersionUID = -4450970615000078774L;
+    private static final long serialVersionUID = 9067858081309070742L;
 
     public String getId() {
         return id;

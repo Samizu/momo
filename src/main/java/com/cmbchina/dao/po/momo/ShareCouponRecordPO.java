@@ -40,7 +40,7 @@ public class ShareCouponRecordPO implements Serializable {
      */
     private Date createTime;
 
-    private static final long serialVersionUID = 4318793791075531253L;
+    private static final long serialVersionUID = -7297007298133041958L;
 
     public Integer getId() {
         return id;

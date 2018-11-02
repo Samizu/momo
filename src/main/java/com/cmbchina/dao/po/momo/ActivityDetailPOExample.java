@@ -395,52 +395,62 @@ public class ActivityDetailPOExample {
             return (Criteria) this;
         }
 
-        public Criteria andMaxCouponIdEqualTo(Integer value) {
+        public Criteria andMaxCouponIdEqualTo(String value) {
             addCriterion("max_coupon_id =", value, "maxCouponId");
             return (Criteria) this;
         }
 
-        public Criteria andMaxCouponIdNotEqualTo(Integer value) {
+        public Criteria andMaxCouponIdNotEqualTo(String value) {
             addCriterion("max_coupon_id <>", value, "maxCouponId");
             return (Criteria) this;
         }
 
-        public Criteria andMaxCouponIdGreaterThan(Integer value) {
+        public Criteria andMaxCouponIdGreaterThan(String value) {
             addCriterion("max_coupon_id >", value, "maxCouponId");
             return (Criteria) this;
         }
 
-        public Criteria andMaxCouponIdGreaterThanOrEqualTo(Integer value) {
+        public Criteria andMaxCouponIdGreaterThanOrEqualTo(String value) {
             addCriterion("max_coupon_id >=", value, "maxCouponId");
             return (Criteria) this;
         }
 
-        public Criteria andMaxCouponIdLessThan(Integer value) {
+        public Criteria andMaxCouponIdLessThan(String value) {
             addCriterion("max_coupon_id <", value, "maxCouponId");
             return (Criteria) this;
         }
 
-        public Criteria andMaxCouponIdLessThanOrEqualTo(Integer value) {
+        public Criteria andMaxCouponIdLessThanOrEqualTo(String value) {
             addCriterion("max_coupon_id <=", value, "maxCouponId");
             return (Criteria) this;
         }
 
-        public Criteria andMaxCouponIdIn(List<Integer> values) {
+        public Criteria andMaxCouponIdLike(String value) {
+            addCriterion("max_coupon_id like", value, "maxCouponId");
+            return (Criteria) this;
+        }
+
+        public Criteria andMaxCouponIdNotLike(String value) {
+            addCriterion("max_coupon_id not like", value, "maxCouponId");
+            return (Criteria) this;
+        }
+
+        public Criteria andMaxCouponIdIn(List<String> values) {
             addCriterion("max_coupon_id in", values, "maxCouponId");
             return (Criteria) this;
         }
 
-        public Criteria andMaxCouponIdNotIn(List<Integer> values) {
+        public Criteria andMaxCouponIdNotIn(List<String> values) {
             addCriterion("max_coupon_id not in", values, "maxCouponId");
             return (Criteria) this;
         }
 
-        public Criteria andMaxCouponIdBetween(Integer value1, Integer value2) {
+        public Criteria andMaxCouponIdBetween(String value1, String value2) {
             addCriterion("max_coupon_id between", value1, value2, "maxCouponId");
             return (Criteria) this;
         }
 
-        public Criteria andMaxCouponIdNotBetween(Integer value1, Integer value2) {
+        public Criteria andMaxCouponIdNotBetween(String value1, String value2) {
             addCriterion("max_coupon_id not between", value1, value2, "maxCouponId");
             return (Criteria) this;
         }

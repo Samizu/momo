@@ -60,7 +60,7 @@ public class ReceiveCouponRecordPO implements Serializable {
      */
     private String nickName;
 
-    private static final long serialVersionUID = 5391546407420929356L;
+    private static final long serialVersionUID = -5809943194568352287L;
 
     public Integer getId() {
         return id;

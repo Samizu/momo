@@ -33,7 +33,7 @@ public class ActivityDetailPO implements Serializable {
     /**
      *最大红包id
      */
-    private Integer maxCouponId;
+    private String maxCouponId;
 
     /**
      *最大红包类型
@@ -70,7 +70,7 @@ public class ActivityDetailPO implements Serializable {
      */
     private String activityRule;
 
-    private static final long serialVersionUID = 7022456550342618810L;
+    private static final long serialVersionUID = -7333404007524221809L;
 
     public String getId() {
         return id;
@@ -104,12 +104,12 @@ public class ActivityDetailPO implements Serializable {
         this.maxReceiveCount = maxReceiveCount;
     }
 
-    public Integer getMaxCouponId() {
+    public String getMaxCouponId() {
         return maxCouponId;
     }
 
-    public void setMaxCouponId(Integer maxCouponId) {
-        this.maxCouponId = maxCouponId;
+    public void setMaxCouponId(String maxCouponId) {
+        this.maxCouponId = maxCouponId == null ? null : maxCouponId.trim();
     }
 
     public String getMaxCouponType() {

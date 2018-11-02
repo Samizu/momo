@@ -6,7 +6,7 @@
     <result column="activity_name" property="activityName" jdbcType="VARCHAR" />
     <result column="duration" property="duration" jdbcType="INTEGER" />
     <result column="max_receive_count" property="maxReceiveCount" jdbcType="INTEGER" />
-    <result column="max_coupon_id" property="maxCouponId" jdbcType="INTEGER" />
+    <result column="max_coupon_id" property="maxCouponId" jdbcType="VARCHAR" />
     <result column="max_coupon_type" property="maxCouponType" jdbcType="VARCHAR" />
     <result column="adventure_name" property="adventureName" jdbcType="VARCHAR" />
     <result column="adventure_pic_url" property="adventurePicUrl" jdbcType="VARCHAR" />
@@ -140,7 +140,7 @@
       create_time, update_time, activity_rule
       )
     values (#{id,jdbcType=VARCHAR}, #{activityName,jdbcType=VARCHAR}, #{duration,jdbcType=INTEGER}, 
-      #{maxReceiveCount,jdbcType=INTEGER}, #{maxCouponId,jdbcType=INTEGER}, #{maxCouponType,jdbcType=VARCHAR}, 
+      #{maxReceiveCount,jdbcType=INTEGER}, #{maxCouponId,jdbcType=VARCHAR}, #{maxCouponType,jdbcType=VARCHAR}, 
       #{adventureName,jdbcType=VARCHAR}, #{adventurePicUrl,jdbcType=VARCHAR}, #{adventureLink,jdbcType=VARCHAR}, 
       #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{activityRule,jdbcType=LONGVARCHAR}
       )
@@ -199,7 +199,7 @@
         #{maxReceiveCount,jdbcType=INTEGER},
       </if>
       <if test="maxCouponId != null" >
-        #{maxCouponId,jdbcType=INTEGER},
+        #{maxCouponId,jdbcType=VARCHAR},
       </if>
       <if test="maxCouponType != null" >
         #{maxCouponType,jdbcType=VARCHAR},
@@ -246,7 +246,7 @@
         max_receive_count = #{record.maxReceiveCount,jdbcType=INTEGER},
       </if>
       <if test="record.maxCouponId != null" >
-        max_coupon_id = #{record.maxCouponId,jdbcType=INTEGER},
+        max_coupon_id = #{record.maxCouponId,jdbcType=VARCHAR},
       </if>
       <if test="record.maxCouponType != null" >
         max_coupon_type = #{record.maxCouponType,jdbcType=VARCHAR},
@@ -280,7 +280,7 @@
       activity_name = #{record.activityName,jdbcType=VARCHAR},
       duration = #{record.duration,jdbcType=INTEGER},
       max_receive_count = #{record.maxReceiveCount,jdbcType=INTEGER},
-      max_coupon_id = #{record.maxCouponId,jdbcType=INTEGER},
+      max_coupon_id = #{record.maxCouponId,jdbcType=VARCHAR},
       max_coupon_type = #{record.maxCouponType,jdbcType=VARCHAR},
       adventure_name = #{record.adventureName,jdbcType=VARCHAR},
       adventure_pic_url = #{record.adventurePicUrl,jdbcType=VARCHAR},
@@ -298,7 +298,7 @@
       activity_name = #{record.activityName,jdbcType=VARCHAR},
       duration = #{record.duration,jdbcType=INTEGER},
       max_receive_count = #{record.maxReceiveCount,jdbcType=INTEGER},
-      max_coupon_id = #{record.maxCouponId,jdbcType=INTEGER},
+      max_coupon_id = #{record.maxCouponId,jdbcType=VARCHAR},
       max_coupon_type = #{record.maxCouponType,jdbcType=VARCHAR},
       adventure_name = #{record.adventureName,jdbcType=VARCHAR},
       adventure_pic_url = #{record.adventurePicUrl,jdbcType=VARCHAR},
@@ -322,7 +322,7 @@
         max_receive_count = #{maxReceiveCount,jdbcType=INTEGER},
       </if>
       <if test="maxCouponId != null" >
-        max_coupon_id = #{maxCouponId,jdbcType=INTEGER},
+        max_coupon_id = #{maxCouponId,jdbcType=VARCHAR},
       </if>
       <if test="maxCouponType != null" >
         max_coupon_type = #{maxCouponType,jdbcType=VARCHAR},
@@ -353,7 +353,7 @@
     set activity_name = #{activityName,jdbcType=VARCHAR},
       duration = #{duration,jdbcType=INTEGER},
       max_receive_count = #{maxReceiveCount,jdbcType=INTEGER},
-      max_coupon_id = #{maxCouponId,jdbcType=INTEGER},
+      max_coupon_id = #{maxCouponId,jdbcType=VARCHAR},
       max_coupon_type = #{maxCouponType,jdbcType=VARCHAR},
       adventure_name = #{adventureName,jdbcType=VARCHAR},
       adventure_pic_url = #{adventurePicUrl,jdbcType=VARCHAR},
@@ -368,7 +368,7 @@
     set activity_name = #{activityName,jdbcType=VARCHAR},
       duration = #{duration,jdbcType=INTEGER},
       max_receive_count = #{maxReceiveCount,jdbcType=INTEGER},
-      max_coupon_id = #{maxCouponId,jdbcType=INTEGER},
+      max_coupon_id = #{maxCouponId,jdbcType=VARCHAR},
       max_coupon_type = #{maxCouponType,jdbcType=VARCHAR},
       adventure_name = #{adventureName,jdbcType=VARCHAR},
       adventure_pic_url = #{adventurePicUrl,jdbcType=VARCHAR},
@@ -405,7 +405,7 @@
     insert into activity_detail (id, activity_name, duration, max_receive_count, max_coupon_id, max_coupon_type, adventure_name, adventure_pic_url, adventure_link, create_time, update_time, activity_rule)
     values 
     <foreach collection="recordList" item="record" separator="," >
-      (#{record.id,jdbcType=VARCHAR}, #{record.activityName,jdbcType=VARCHAR}, #{record.duration,jdbcType=INTEGER}, #{record.maxReceiveCount,jdbcType=INTEGER}, #{record.maxCouponId,jdbcType=INTEGER}, #{record.maxCouponType,jdbcType=VARCHAR}, #{record.adventureName,jdbcType=VARCHAR}, #{record.adventurePicUrl,jdbcType=VARCHAR}, #{record.adventureLink,jdbcType=VARCHAR}, #{record.createTime,jdbcType=TIMESTAMP}, #{record.updateTime,jdbcType=TIMESTAMP}, #{record.activityRule,jdbcType=LONGVARCHAR}
+      (#{record.id,jdbcType=VARCHAR}, #{record.activityName,jdbcType=VARCHAR}, #{record.duration,jdbcType=INTEGER}, #{record.maxReceiveCount,jdbcType=INTEGER}, #{record.maxCouponId,jdbcType=VARCHAR}, #{record.maxCouponType,jdbcType=VARCHAR}, #{record.adventureName,jdbcType=VARCHAR}, #{record.adventurePicUrl,jdbcType=VARCHAR}, #{record.adventureLink,jdbcType=VARCHAR}, #{record.createTime,jdbcType=TIMESTAMP}, #{record.updateTime,jdbcType=TIMESTAMP}, #{record.activityRule,jdbcType=LONGVARCHAR}
     ) 
     </foreach>
   </insert>
@@ -464,7 +464,7 @@
           #{record.maxReceiveCount,jdbcType=INTEGER},
         </if>
         <if test="record.maxCouponId != null" >
-          #{record.maxCouponId,jdbcType=INTEGER},
+          #{record.maxCouponId,jdbcType=VARCHAR},
         </if>
         <if test="record.maxCouponType != null" >
           #{record.maxCouponType,jdbcType=VARCHAR},

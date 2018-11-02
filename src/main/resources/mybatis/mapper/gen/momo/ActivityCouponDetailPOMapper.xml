@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cmbchina.dao.mapper.gen.momo.ActivityCouponDetailPOMapper" >
+  <resultMap id="BaseResultMap" type="com.cmbchina.dao.po.momo.ActivityCouponDetailPO" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="activity_id" property="activityId" jdbcType="INTEGER" />
+    <result column="coupon_id" property="couponId" jdbcType="VARCHAR" />
+    <result column="coupon_type" property="couponType" jdbcType="VARCHAR" />
+    <result column="is_max" property="isMax" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, activity_id, coupon_id, coupon_type, is_max, create_time
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.cmbchina.dao.po.momo.ActivityCouponDetailPOExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from activity_coupon_detail
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+      <if test="limitStart >= 0" >
+        limit ${limitStart} , ${limitEnd}
+      </if>
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from activity_coupon_detail
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from activity_coupon_detail
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.cmbchina.dao.po.momo.ActivityCouponDetailPOExample" >
+    delete from activity_coupon_detail
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.cmbchina.dao.po.momo.ActivityCouponDetailPO" >
+    insert into activity_coupon_detail (id, activity_id, coupon_id, 
+      coupon_type, is_max, create_time
+      )
+    values (#{id,jdbcType=INTEGER}, #{activityId,jdbcType=INTEGER}, #{couponId,jdbcType=VARCHAR}, 
+      #{couponType,jdbcType=VARCHAR}, #{isMax,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.cmbchina.dao.po.momo.ActivityCouponDetailPO" >
+    insert into activity_coupon_detail
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="activityId != null" >
+        activity_id,
+      </if>
+      <if test="couponId != null" >
+        coupon_id,
+      </if>
+      <if test="couponType != null" >
+        coupon_type,
+      </if>
+      <if test="isMax != null" >
+        is_max,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="activityId != null" >
+        #{activityId,jdbcType=INTEGER},
+      </if>
+      <if test="couponId != null" >
+        #{couponId,jdbcType=VARCHAR},
+      </if>
+      <if test="couponType != null" >
+        #{couponType,jdbcType=VARCHAR},
+      </if>
+      <if test="isMax != null" >
+        #{isMax,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.cmbchina.dao.po.momo.ActivityCouponDetailPOExample" resultType="java.lang.Integer" >
+    select count(*) from activity_coupon_detail
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update activity_coupon_detail
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.activityId != null" >
+        activity_id = #{record.activityId,jdbcType=INTEGER},
+      </if>
+      <if test="record.couponId != null" >
+        coupon_id = #{record.couponId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.couponType != null" >
+        coupon_type = #{record.couponType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isMax != null" >
+        is_max = #{record.isMax,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null" >
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update activity_coupon_detail
+    set id = #{record.id,jdbcType=INTEGER},
+      activity_id = #{record.activityId,jdbcType=INTEGER},
+      coupon_id = #{record.couponId,jdbcType=VARCHAR},
+      coupon_type = #{record.couponType,jdbcType=VARCHAR},
+      is_max = #{record.isMax,jdbcType=VARCHAR},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cmbchina.dao.po.momo.ActivityCouponDetailPO" >
+    update activity_coupon_detail
+    <set >
+      <if test="activityId != null" >
+        activity_id = #{activityId,jdbcType=INTEGER},
+      </if>
+      <if test="couponId != null" >
+        coupon_id = #{couponId,jdbcType=VARCHAR},
+      </if>
+      <if test="couponType != null" >
+        coupon_type = #{couponType,jdbcType=VARCHAR},
+      </if>
+      <if test="isMax != null" >
+        is_max = #{isMax,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cmbchina.dao.po.momo.ActivityCouponDetailPO" >
+    update activity_coupon_detail
+    set activity_id = #{activityId,jdbcType=INTEGER},
+      coupon_id = #{couponId,jdbcType=VARCHAR},
+      coupon_type = #{couponType,jdbcType=VARCHAR},
+      is_max = #{isMax,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="lockByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from activity_coupon_detail
+    where id = #{id}  for update 
+  </select>
+  <select id="lockByExample" resultMap="BaseResultMap" parameterType="com.cmbchina.dao.po.momo.ActivityCouponDetailPOExample" >
+    select 
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from activity_coupon_detail
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+       order by #{orderByClause} 
+    </if>
+    <if test="limitStart >= 0" >
+       limit #{limitStart} , #{limitEnd} 
+    </if>
+     for update 
+  </select>
+  <insert id="insertBatch" parameterType="java.util.List" >
+    insert into activity_coupon_detail (id, activity_id, coupon_id, coupon_type, is_max, create_time)
+    values 
+    <foreach collection="recordList" item="record" separator="," >
+      (#{record.id,jdbcType=INTEGER}, #{record.activityId,jdbcType=INTEGER}, #{record.couponId,jdbcType=VARCHAR}, #{record.couponType,jdbcType=VARCHAR}, #{record.isMax,jdbcType=VARCHAR}, #{record.createTime,jdbcType=TIMESTAMP}
+    ) 
+    </foreach>
+  </insert>
+  <insert id="insertBatchSelective" parameterType="java.util.List" >
+    <foreach collection="recordList" item="record" separator=";" >
+      insert into activity_coupon_detail
+      <trim prefix="(" suffix=")" suffixOverrides="," >
+        <if test="record.id != null" >
+          id,
+        </if>
+        <if test="record.activityId != null" >
+          activity_id,
+        </if>
+        <if test="record.couponId != null" >
+          coupon_id,
+        </if>
+        <if test="record.couponType != null" >
+          coupon_type,
+        </if>
+        <if test="record.isMax != null" >
+          is_max,
+        </if>
+        <if test="record.createTime != null" >
+          create_time,
+        </if>
+      </trim>
+      <trim prefix="values (" suffix=")" suffixOverrides="," >
+        <if test="record.id != null" >
+          #{record.id,jdbcType=INTEGER},
+        </if>
+        <if test="record.activityId != null" >
+          #{record.activityId,jdbcType=INTEGER},
+        </if>
+        <if test="record.couponId != null" >
+          #{record.couponId,jdbcType=VARCHAR},
+        </if>
+        <if test="record.couponType != null" >
+          #{record.couponType,jdbcType=VARCHAR},
+        </if>
+        <if test="record.isMax != null" >
+          #{record.isMax,jdbcType=VARCHAR},
+        </if>
+        <if test="record.createTime != null" >
+          #{record.createTime,jdbcType=TIMESTAMP},
+        </if>
+      </trim>
+    </foreach>
+  </insert>
+</mapper>

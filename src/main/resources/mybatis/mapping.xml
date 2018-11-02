@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC
+        "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+    <!-- 驱动程序 -->
+    <classPathEntry
+            location="${user.home}/.m2/repository/mysql/mysql-connector-java/5.1.40/mysql-connector-java-5.1.40.jar"/>
+
+    <context id="context2" targetRuntime="MyBatis3">
+
+        <plugin type="org.spoon.msa.plugins.SerializablePlugin"/>
+        <plugin type="org.spoon.msa.plugins.DBCommentPlugin"/>
+        <plugin type="org.spoon.msa.plugins.RepositoryPlugin"/>
+        <plugin type="org.spoon.msa.plugins.LombokBuilderPlugin"/>
+        <plugin type="org.spoon.msa.plugins.PaginationPlugin4Mysql"/>
+        <plugin type="org.spoon.msa.plugins.XmlFileOverwritePlugin"/>
+        <plugin type="org.spoon.msa.plugins.PessimisticLockPluginMysql"/>
+        <plugin type="org.spoon.msa.plugins.BatchInsertPlugin"/>
+
+        <commentGenerator>
+            <!-- 是否取消注释 -->
+            <property name="suppressAllComments" value="true"/>
+            <property name="suppressDate" value="true"/>
+        </commentGenerator>
+
+        <!-- 数据库链接 -->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://192.144.131.188:3306/momo_monkey" userId="root"
+                        password="Fyk08100808...."/>
+
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <!-- java entity生成位置 -->
+        <javaModelGenerator targetPackage="com.cmbchina.dao.po.momo"
+                            targetProject="${user.dir}/src/main/java">
+            <property name="enableSubPackages" value="false"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <!-- mapper xml配置文件生成位置 -->
+        <sqlMapGenerator targetPackage="mybatis.mapper.gen.momo"
+                         targetProject="${user.dir}/src/main/resources">
+            <property name="enableSubPackages" value="false"/>
+        </sqlMapGenerator>
+
+        <!-- mapper 接口生成位置 -->
+        <javaClientGenerator targetPackage="com.cmbchina.dao.mapper.gen.momo"
+                             targetProject="${user.dir}/src/main/java"
+                             type="XMLMAPPER">
+            <property name="enableSubPackages" value="false"/>
+        </javaClientGenerator>
+
+        <!-- 表以及关系配置 -->
+        <!--用户表-->
+        <!--<table tableName="t_oms_user" domainObjectName="OmsUser"/>-->
+
+        <!--基础表-->
+        <!--<table tableName="t_auth_department" domainObjectName="Department"/>-->
+        <!--<table tableName="t_auth_department_city" domainObjectName="DepartmentCity"/>-->
+
+        <!--<table tableName="t_bas_city_info" domainObjectName="CityInfo"/>-->
+        <!--<table tableName="t_bas_distinct_info" domainObjectName="DistinctInfo"/>-->
+        <!--<table tableName="t_bas_region_info" domainObjectName="RegionInfo"/>-->
+        <!--橱窗-->
+        <!--<table tableName="t_chnl_shopwindow_city_list" domainObjectName="ShopwindowCityInfo"/>-->
+        <!--<table tableName="t_chnl_shopwindow_info" domainObjectName="ShopwindowInfo"/>-->
+        <!--<table tableName="t_chnl_shopwindow_pic_list" domainObjectName="ShopwindowPicInfo"/>-->
+
+        <!--<table tableName="t_head_banner_config" domainObjectName="HeadBannerConfig"/>-->
+        <!--商户-->
+        <!--<table tableName="t_mer_merch_approve_info" domainObjectName="MerchantApproveInfo"/>-->
+        <!--<table tableName="t_mer_merch_info" domainObjectName="MerchantInfo"/>-->
+
+        <!--<table tableName="t_mer_merchant_type_info" domainObjectName="MerchantTypeInfo"/>-->
+        <!--<table tableName="t_mer_reltype_approve_info" domainObjectName="RelTypeApproveInfo"/>-->
+        <!--<table tableName="t_mer_reltype_info" domainObjectName="RelTypeInfo"/>-->
+        <!--清算关联-->
+        <!--<table tableName="t_mer_relacct_his" domainObjectName="ClearAccountHis"/>-->
+        <!--<table tableName="t_mer_relclear_approve_info" domainObjectName="ClearAccountApproveInfo"/>-->
+        <!--<table tableName="t_mer_relclear_info" domainObjectName="ClearAccountInfo"/>-->
+        <!--账号-->
+        <!--<table tableName="t_mer_acc_approve_info" domainObjectName="AccountApproveInfo"/>-->
+        <!--<table tableName="t_mer_acc_info" domainObjectName="AccountInfo"/>-->
+        <!--门店-->
+        <!--<table tableName="t_mer_store_approve_info" domainObjectName="StoreApproveInfo"/>-->
+        <!--<table tableName="t_mer_store_info" domainObjectName="StoreInfo"/>-->
+        <!--广告位-->
+        <!--<table tableName="t_prd_adver_city" domainObjectName="AdvertiseCity"/>-->
+        <!--<table tableName="t_prd_adver_map_info" domainObjectName="AdvertiseMapInfo"/>-->
+        <!--<table tableName="t_prd_advertise_info" domainObjectName="AdvertiseInfo"/>-->
+        <!--商品／活动商品-->
+            <!--商品审核表，商品模块重新设计后废弃-->
+        <!--<table tableName="t_prd_aprv_list" domainObjectName="ProductApproveInfo"/>-->
+            <!--商品副本表，商品模块重新设计后作为快照表使用，商品的每次变更都将有快照记录-->
+        <!--<table tableName="t_prd_bak_book" domainObjectName="ProductBakInfo"/>-->
+            <!-- 商品表信息-->
+        <!--<table tableName="t_prd_base_book" domainObjectName="ProductInfo"/>-->
+
+        <!--推荐位-->
+        <!--<table tableName="t_prd_recommend_city" domainObjectName="RecommendCity"/>-->
+        <!--<table tableName="t_prd_recommend_info" domainObjectName="RecommendInfo"/>-->
+        <!--<table tableName="t_prd_recommend_position" domainObjectName="RecommendPosition"/>-->
+        <!--标志位-->
+        <!--<table tableName="t_prd_sign_info" domainObjectName="SignInfo"/>-->
+        <!--<table tableName="t_prd_sign_map_info" domainObjectName="SignMapInfo"/>-->
+        <!--抵扣券-->
+        <!--<table tableName="t_vou_activity" domainObjectName="VoucherActivity"/>-->
+        <!--<table tableName="t_vou_arithmetic" domainObjectName="VoucherArithmetic"/>-->
+        <!--<table tableName="t_vou_voucher_info" domainObjectName="VoucherInfo"/>-->
+        <!--生活圈-->
+        <!--<table tableName="t_zon_exhibit_info" domainObjectName="ZoneExhibitInfo"/>-->
+        <!--<table tableName="t_zon_prd_info" domainObjectName="ZoneProductInfo"/>-->
+        <!--<table tableName="t_zon_zone_info" domainObjectName="ZoneInfo"/>-->
+        <!--营销活动-->
+        <!--<table tableName="t_activity_info" domainObjectName="ActivityInfo"/>-->
+        <!--<table tableName="t_activity_relation" domainObjectName="ActivityRelation"/>-->
+
+        <!--<table tableName="t_handoms_user_reference_info" domainObjectName="HandomsUserReferenceInfo"/>-->
+
+        <!--<table tableName="t_oms_role" domainObjectName="OmsRole"/>-->
+        <!--<table tableName="t_oms_author_url" domainObjectName="OmsAuthorUrl"/>-->
+        <!--<table tableName="t_oms_role_url" domainObjectName="OmsRoleUrl"/>-->
+
+        <!--<table tableName="t_dict_data" domainObjectName="DictData"/>-->
+        <!--<table tableName="t_prd_merch_info" domainObjectName="ProductMerchInfo"/>-->
+
+        <!--<table tableName="t_prd_label_info" domainObjectName="ProductLabelInfo"/>-->
+        <!--<table tableName="t_prd_labe_sale_info" domainObjectName="ProductLabelSaleInfo"/>-->
+
+        <!--讯息单-->
+        <!--<table tableName="t_message_sheet" domainObjectName="MessageSheet"/>-->
+        <!--<table tableName="t_message_follow_relation" domainObjectName="MessageFollowRelation"/>-->
+
+
+        <!--<table tableName="t_auth_user_info" domainObjectName="AuthUserInfo"/>-->
+
+        <!--<table tableName="t_oms_employee" domainObjectName="OmsEmployee"/>-->
+
+        <!--<table tableName="t_oms_operation_log" domainObjectName="OmsOperationLog"/>-->
+        <!--<table tableName="t_oms_user_role" domainObjectName="OmsUserRole"/>-->
+
+        <!--<table tableName="t_oms_checking_point" domainObjectName="OmsCheckingPoint"/>-->
+
+        <!--<table tableName="t_prd_prod_stock" domainObjectName="ProductStock"/>-->
+        <!--<table tableName="t_prd_rush_stock" domainObjectName="ProductRushStock"/>-->
+        <!--<table tableName="t_mer_store_sold_info" domainObjectName="MerStoreSoldInfo"/>-->
+        <!--<table tableName="t_mall_info" domainObjectName="MallInfo"/>-->
+        <!--<table tableName="t_mall_exhibit_info" domainObjectName="MallExhibitInfo"/>-->
+        <!--<table tableName="t_mall_floor" domainObjectName="MallFloor"/>-->
+        <table tableName="activity_coupon_detail" domainObjectName="ActivityCouponDetailPO"/>
+        <table tableName="activity_detail" domainObjectName="ActivityDetailPO"/>
+        <table tableName="receive_coupon_record" domainObjectName="ReceiveCouponRecordPO"/>
+        <table tableName="share_coupon_record" domainObjectName="ShareCouponRecordPO"/>
+        <!--<table tableName="t_zon_activity_info" domainObjectName="MallActivityInfo"/>-->
+
+    </context>
+</generatorConfiguration>

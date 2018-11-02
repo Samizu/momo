@@ -1,11 +1,10 @@
 package com.cmbchina.dao.po.momo;
 
+import java.io.Serializable;
+import java.util.Date;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
-
-import java.io.Serializable;
-import java.util.Date;
 
 @Builder
 @NoArgsConstructor
@@ -41,7 +40,7 @@ public class ActivityCouponDetailPO implements Serializable {
      */
     private Date createTime;
 
-    private static final long serialVersionUID = -5957587545123941327L;
+    private static final long serialVersionUID = -7572714021474534339L;
 
     public Integer getId() {
         return id;

@@ -1,11 +1,10 @@
 package com.cmbchina.dao.po.momo;
 
+import java.io.Serializable;
+import java.util.Date;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
-
-import java.io.Serializable;
-import java.util.Date;
 
 @Builder
 @NoArgsConstructor
@@ -41,7 +40,7 @@ public class ShareCouponRecordPO implements Serializable {
      */
     private Date createTime;
 
-    private static final long serialVersionUID = -1630597980381859040L;
+    private static final long serialVersionUID = 1102987196138636091L;
 
     public Integer getId() {
         return id;

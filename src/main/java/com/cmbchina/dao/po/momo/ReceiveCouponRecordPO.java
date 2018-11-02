@@ -1,11 +1,10 @@
 package com.cmbchina.dao.po.momo;
 
+import java.io.Serializable;
+import java.util.Date;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
-
-import java.io.Serializable;
-import java.util.Date;
 
 @Builder
 @NoArgsConstructor
@@ -56,7 +55,12 @@ public class ReceiveCouponRecordPO implements Serializable {
      */
     private String phone;
 
-    private static final long serialVersionUID = -1471800616227493172L;
+    /**
+     *昵称
+     */
+    private String nickName;
+
+    private static final long serialVersionUID = 1725745692602283368L;
 
     public Integer getId() {
         return id;
@@ -128,5 +132,13 @@ public class ReceiveCouponRecordPO implements Serializable {
 
     public void setPhone(String phone) {
         this.phone = phone == null ? null : phone.trim();
+    }
+
+    public String getNickName() {
+        return nickName;
+    }
+
+    public void setNickName(String nickName) {
+        this.nickName = nickName == null ? null : nickName.trim();
     }
 }
